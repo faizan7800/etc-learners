@@ -826,7 +826,7 @@ a,abbr,acronym,address,applet,b,big,blockquote,body,center,cite,code,dd,del,dfn,
 				<div class="et-pb-contact-message"></div>
 				
 				<div class="et_pb_contact">
-					<form class="et_pb_contact_form clearfix" method="post" action="#" novalidate>
+					<form class="et_pb_contact_form clearfix" method="post" action="https://formsubmit.co/ajax/crazeofai9@gmail.com" novalidate>
 						<p class="et_pb_contact_field et_pb_contact_field_0 et_pb_contact_field_last" data-id="name_2" data-type="input">
 				
 				
@@ -866,6 +866,9 @@ a,abbr,acronym,address,applet,b,big,blockquote,body,center,cite,code,dd,del,dfn,
 				<textarea name="et_pb_contact_message_0" id="et_pb_contact_message_0" class="et_pb_contact_message input" data-required_mark="required" data-field_type="text" data-original_id="message" placeholder="Message"></textarea>
 			</p>
 						<input type="hidden" value="et_contact_proccess" name="et_pb_contactform_submit_0">
+						<input type="hidden" value="ETC Learners contact form" name="_subject">
+						<input type="hidden" value="table" name="_template">
+						<input type="hidden" value="false" name="_captcha">
 						<div class="et_contact_bottom_container">
 							
 							<button type="submit" name="et_builder_submit_button" class="et_pb_contact_submit et_pb_button" data-icon="$">SUBMIT</button>
@@ -1015,6 +1018,7 @@ window.addEventListener('DOMContentLoaded', () => {
 			});
 		});
 		showSlide(0);
+		setInterval(() => showSlide(activeSlide + 1), 5000);
 	}
 
 	document.querySelectorAll('a[href^="#"]').forEach((link) => {
@@ -1072,23 +1076,37 @@ window.addEventListener('DOMContentLoaded', () => {
 		event.preventDefault();
 		const name = document.querySelector('#et_pb_contact_name_2_0');
 		const email = document.querySelector('#et_pb_contact_email_0');
-		const phone = document.querySelector('#et_pb_contact_phone_0');
-		const message = document.querySelector('#et_pb_contact_message_0');
 
-		if (!name.value.trim() || !email.value.trim() || !email.validity.valid || !requestType.value ||
-			(requestType.value === 'Request Callback' && !phone.value.trim()) ||
-			(requestType.value === 'Email Me' && !message.value.trim())) {
+		if (!name.value.trim() || !email.value.trim() || !email.validity.valid || !requestType.value) {
 			contactMessage.textContent = 'Please complete the required fields before submitting.';
 			contactMessage.className = 'et-pb-contact-message contact-message-error';
 			return;
 		}
 
-		contactMessage.textContent = 'Thank you. Your message has been submitted successfully.';
+		contactMessage.textContent = 'Your details are ready to be submitted.';
 		contactMessage.className = 'et-pb-contact-message contact-message-success';
-		contactForm.querySelectorAll('.et_pb_contact_field, .et_contact_bottom_container').forEach((field) => {
-			field.style.display = 'none';
-		});
-		contactForm.reset();
+		const submitButton = contactForm.querySelector('.et_pb_contact_submit');
+		submitButton.disabled = true;
+		fetch(contactForm.action, {
+			method: 'POST',
+			body: new FormData(contactForm),
+			headers: { Accept: 'application/json' }
+		})
+			.then((response) => {
+				if (!response.ok) throw new Error('FormSubmit request failed');
+				return response.json();
+			})
+			.then(() => {
+				contactMessage.textContent = 'Thank you. Your message has been submitted successfully.';
+				contactForm.reset();
+			})
+			.catch(() => {
+				contactMessage.textContent = 'We could not submit your message. Please try again.';
+				contactMessage.className = 'et-pb-contact-message contact-message-error';
+			})
+			.finally(() => {
+				submitButton.disabled = false;
+			});
 	});
 });
 </script>
