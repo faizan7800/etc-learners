@@ -56,7 +56,23 @@
   max-height: none;
 }
 .et_pb_menu_0_tb_header .mobile_nav .mobile_menu_bar:before {
-  color: #000000;
+  content: none !important;
+}
+
+.et_pb_menu_0_tb_header .mobile_nav .mobile_menu_bar {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+}
+
+.et_pb_menu_0_tb_header .mobile_nav .mobile_menu_bar svg {
+  display: block;
+  width: 24px;
+  height: 24px;
+  fill: #000000;
 }
 .et_pb_menu_0_tb_header .et_pb_menu__icon.et_pb_menu__search-button,
 .et_pb_menu_0_tb_header .et_pb_menu__icon.et_pb_menu__close-search-button,
