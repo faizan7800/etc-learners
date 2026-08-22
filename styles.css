@@ -127,9 +127,30 @@
     width: auto;
   }
   .et_pb_menu_0_tb_header {
-    margin-top: 26px !important;
-    margin-right: 250px !important;
+    margin-top: 0 !important;
+    margin-right: 0 !important;
     margin-left: 0px !important;
+    width: 100%;
+  }
+  .et_pb_menu_0_tb_header .et_pb_menu__wrap {
+    justify-content: flex-end !important;
+    width: 100%;
+  }
+  .et_pb_menu_0_tb_header .et_mobile_nav_menu {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .et_pb_menu_0_tb_header .mobile_nav {
+    width: 100%;
+    padding-right: 16px;
+    box-sizing: border-box;
+    text-align: right;
+  }
+  .et_pb_menu_0_tb_header .et_mobile_menu {
+    left: 0;
+    right: 0;
+    width: 100%;
   }
 }
 @media only screen and (max-width: 767px) {
@@ -166,8 +187,29 @@
   }
   .et_pb_menu_0_tb_header {
     margin-top: -84px !important;
-    margin-right: 30px !important;
-    margin-left: -1px !important;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    width: 100%;
+  }
+  .et_pb_menu_0_tb_header .et_pb_menu__wrap,
+  .et_pb_menu_0_tb_header .et_mobile_nav_menu,
+  .et_pb_menu_0_tb_header .mobile_nav {
+    width: 100%;
+  }
+  .et_pb_menu_0_tb_header .et_mobile_nav_menu {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .et_pb_menu_0_tb_header .et_pb_menu__wrap {
+    justify-content: flex-end !important;
+  }
+  .et_pb_menu_0_tb_header .mobile_nav {
+    text-align: right;
+  }
+  .et_pb_menu_0_tb_header .et_mobile_menu {
+    left: 0;
+    right: 0;
+    width: 100%;
   }
   .et_pb_menu_0_tb_header.et_pb_menu ul li.current-menu-item a {
     color: #000000 !important;
@@ -4833,10 +4875,12 @@ p.et_pb_contact_field_half
   right: -22px;
 }
 .et-pb-arrow-prev:before {
-  content: "4";
+  content: "\2039" !important; /* ‹ */
+  font-family: Arial, sans-serif !important;
 }
 .et-pb-arrow-next:before {
-  content: "5";
+  content: "\203A" !important; /* › */
+  font-family: Arial, sans-serif !important;
 }
 .format-gallery .et-pb-arrow-next,
 .format-gallery .et-pb-arrow-prev {

@@ -4,6 +4,8 @@
 	
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<link rel="pingback" #xmlrpc.php">
+	<link rel="icon" type="image/png" href="./assets/logo_icon_new-1.png">
+<link rel="apple-touch-icon" href="./assets/logo_icon_new-1.png">
 
 	<script type="text/javascript">
 		document.documentElement.className = 'js';
@@ -915,8 +917,7 @@ a,abbr,acronym,address,applet,b,big,blockquote,body,center,cite,code,dd,del,dfn,
 				
 				
 				
-				
-				<div class="et_pb_text_inner"><p><span>Copyright © 2024 – ETCLearners – All Rights Reserved </span></p></div>
+				<div class="et_pb_text_inner"><p><span>Copyright © <span id="copyright-year">2024</span> – ETCLearners – All Rights Reserved </span></p></div>
 			</div>
 			</div>
 				
@@ -1155,7 +1156,9 @@ var et_pb_sticky_elements = [];
 </script>
 	
 			
-	
+	<script>
+document.getElementById('copyright-year').textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
